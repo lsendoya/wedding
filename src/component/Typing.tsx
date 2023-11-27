@@ -43,7 +43,7 @@ const TypingAnimation: React.FC = () => {
   }, [phraseIndex, letterIndex]);
 
   return (
-    <Box position="relative"  w={{base: '70%', md: 'lg', lg: 'xl'}} h={{base:"8rem"}}  maxH={{base:"12rem"}}>
+    <Box position="relative"  w={{base: '65%', md: 'lg', lg: 'xl'}} h={{base:"10rem"}}  maxH={{base:"14rem"}}  left={{base:"4.5rem", md:"0"}}>
       <Text
         fontSize={{ base: 'md', md: 'xl', lg: '2xl' }}
         fontWeight="bold"

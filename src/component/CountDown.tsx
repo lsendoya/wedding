@@ -1,74 +1,59 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Grid, Text, Flex, VStack, Image } from "@chakra-ui/react";
+import { Grid, Text, Flex, VStack } from "@chakra-ui/react";
 
 interface TimeLeft {
-  días: number;
-  hs: number;
-  min: number;
-  seg: number;
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
 }
 
-type TimeLeftObject = {
-  [key in keyof TimeLeft]?: number;
-};
-
 const Countdown: React.FC<{ targetDate: string }> = ({ targetDate }) => {
-  const calculateTimeLeft = useCallback((): TimeLeftObject => {
+  const calculateTimeLeft = useCallback((): TimeLeft => {
     const difference = +new Date(targetDate) - +new Date();
-    let timeLeft: TimeLeftObject = {};
-
-    if (difference > 0) {
-      timeLeft = {
-        días: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hs: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        min: Math.floor((difference / 1000 / 60) % 60),
-        seg: Math.floor((difference / 1000) % 60),
-      };
+    if (difference <= 0) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
     }
 
-    return timeLeft;
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / 1000 / 60) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    };
   }, [targetDate]);
 
-  const [timeLeft, setTimeLeft] = useState<TimeLeftObject>(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    return () => clearTimeout(timer);
-  }, [timeLeft, targetDate, calculateTimeLeft]);
+    return () => clearInterval(timer);
+  }, [targetDate, calculateTimeLeft]);
 
-  const timeComponents: React.ReactNode = Object.keys(timeLeft).map(
-    (interval) => {
-      if (!timeLeft[interval]) {
-        return null;
-      }
-      return (
-        <VStack
-          key={interval}
-          w={{ base: "3rem", md: "5rem", lg: "6rem" }}
-          h={{ base: "auto", md: "5rem", lg: "6rem" }}
-          color="#3f650f"
-        >
-          <Text
-            fontSize={{ base: "xl", md: "4xl", lg: "5xl" }}
-            fontWeight="bold"
-          >
-            {timeLeft[interval]}
-          </Text>
-          <Text fontSize={{ base: "sm", md: "md", lg: "lg" }}>
-            {interval.toUpperCase()}
-          </Text>
-        </VStack>
-      );
-    }
-  );
+  const timeComponents = Object.entries(timeLeft).map(([unit, value]) => (
+    <VStack
+      alignItems={"center"}
+      justify={"center"}
+      key={unit}
+      w={{ base: "4rem", md: "5rem", lg: "6rem" }}
+      h={{ base: "auto", md: "5rem", lg: "6rem" }}
+      color="#3f650f"
+    >
+      <Text fontSize={{ base: "xl", md: "4xl", lg: "5xl" }} fontWeight="bold">
+        {value}
+      </Text>
+      <Text fontSize={{ base: "xs", md: "md", lg: "lg" }} px="0.5rem">
+        {unit.toUpperCase()}
+      </Text>
+    </VStack>
+  ));
 
   return (
-    <VStack w="100%" justify="center" align="center" pos="relative">
+    <VStack w="100%" justify="center" align="center">
       <VStack
-        position="relative"
         borderRadius="full"
         p="4"
         w={{ base: "full" }}
@@ -98,25 +83,20 @@ const WeddingCountdown: React.FC = () => {
 
   return (
     <Grid
-      h={{ base: "20rem", md: "30rem", lg: "30rem" }}
+      w={{ base: "100%" }}
+      h={{ base: "20rem", md: "40rem", lg: "40rem" }}
       color="gold"
-      p={8}
+      p={{ base: "2rem", md: "12rem" }}
       rounded="lg"
       textAlign="center"
       pos="relative"
       placeContent={"center"}
       mb={"4rem"}
       id="countdown"
+      bgImage={"rectangle-count-down.png"}
+      bgPos={"center"}
+      bgSize={"cover"}
     >
-      <Image
-        position="absolute"
-        h={{base:"14rem", md: "20rem", lg: "30rem" }}
-        w={{base:"full", md: "20%", lg: "auto" }}
-        src="/rectangle-count-down.png"
-        bottom={{ base: "2.8rem", md: "12rem", lg: "-2rem" }}
-        left={{ base: "-0.2rem", md: "40%", lg: "18%" }}
-        
-      />
       <Countdown targetDate={weddingDate} />
     </Grid>
   );
