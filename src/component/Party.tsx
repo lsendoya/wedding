@@ -1,6 +1,6 @@
 import {
   Box,
-  SimpleGrid,
+  Flex,
   Text,
   Heading,
   VStack,
@@ -33,8 +33,7 @@ const PartyWending = () => {
           </Text>
         </VStack>
 
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
-          <InfoCard
+        <Flex wrap={"wrap"} justify={"center"} alignItems={"center"} gap={8}>          <InfoCard
             icon={FaMusic}
             title="MÚSICA"
             text="¿Cuál es la canción que no debe faltar en la playlist de la fiesta?"
@@ -55,7 +54,7 @@ const PartyWending = () => {
             buttonText="+ Info"
             widht="70%"
           />
-        </SimpleGrid>
+        </Flex>
       </Box>
     </HStack>
   );

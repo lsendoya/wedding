@@ -48,7 +48,7 @@ const TypingAnimation: React.FC = () => {
         fontSize={{ base: 'md', md: 'xl', lg: '2xl' }}
         fontWeight="bold"
         fontStyle="italic"
-        color="#65aa06"
+        color="var(--text-secondary)"
        
 
       >

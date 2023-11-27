@@ -40,7 +40,7 @@ const Countdown: React.FC<{ targetDate: string }> = ({ targetDate }) => {
       key={unit}
       w={{ base: "4rem", md: "5rem", lg: "6rem" }}
       h={{ base: "auto", md: "5rem", lg: "6rem" }}
-      color="#3f650f"
+      
     >
       <Text fontSize={{ base: "xl", md: "4xl", lg: "5xl" }} fontWeight="bold">
         {value}
@@ -66,7 +66,7 @@ const Countdown: React.FC<{ targetDate: string }> = ({ targetDate }) => {
         <Text
           fontSize={{ base: "sm", md: "xl", lg: "2xl" }}
           fontWeight="bold"
-          color="#3f650f"
+          color={"var(--text-countDown)"}
         >
           Falta
         </Text>
@@ -83,9 +83,9 @@ const WeddingCountdown: React.FC = () => {
 
   return (
     <Grid
+      color={"var(--text-primary)"}
       w={{ base: "100%" }}
       h={{ base: "20rem", md: "40rem", lg: "40rem" }}
-      color="gold"
       p={{ base: "2rem", md: "12rem" }}
       rounded="lg"
       textAlign="center"

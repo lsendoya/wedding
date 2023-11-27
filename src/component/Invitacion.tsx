@@ -50,43 +50,52 @@ function WeddingInvitation() {
         }}
       />
 
-      <VStack w={{ base: "100%" }} color="#3f650f" justifyContent={{base:"end", md:"center"}}>
+      <VStack
+        w={{ base: "100%" }}
+        color="var(--text-primary)"
+        justifyContent={{ base: "end", md: "center" }}
+      >
         <Text
-          w={{ base: "100%" }}
-          textAlign={{ base: "end", md:"center" }}
-          fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
-          fontWeight="light"
-          pr={{ base: "8%", md: "4rem", lg: "6rem" }}
+          w={ "100%" }
+          textAlign={{ base: "end", md: "center" }}
+          fontSize={{ base: "3xl", md: "4xl", lg: "8xl" }}
+          fontWeight="semibold"
+          pl={{ base: "0", md: "4rem", lg: "10%" }}
+          mb={{ base: "0", md: "4rem" }}
+          
         >
           02.01.2024
         </Text>
         <Text
-          w={{ base: "100%" }}
-          textAlign={{ base: "end", md:"center" }}
-          fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+          w={ "100%" }
+          textAlign={"center"}
+          fontSize={{ base: "3xl", md: "4xl", lg: "6xl" }}
           fontWeight="bold"
           fontFamily="cursive"
-          pr={{ base: "14%", md: "4rem", lg: "6rem" }}
+          pl={{ base: "10rem", md: "4rem", lg: "6rem" }}
+          
         >
           Luis
         </Text>
         <Text
-          w={{ base: "100%" }}
-          textAlign={{ base: "end", md:"center" }}
-          fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
+          w={ "100%" }
+          textAlign={"center"}
+          fontSize={{ base: "3xl", md: "3xl", lg: "5xl" }}
           fontWeight="bold"
           fontFamily="cursive"
-          pr={{ base: "22%", md: "4rem", lg: "6rem" }}
+          pl={{ base: "10rem", md: "4rem", lg: "6rem" }}
+          
         >
           &
         </Text>
         <Text
-          w={{ base: "100%" }}
-          textAlign={{ base: "end", md:"center" }}
-          fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+          w={ "100%" }
+          textAlign={"center"}
+          fontSize={{ base: "3xl", md: "4xl", lg: "6xl" }}
           fontWeight="bold"
           fontFamily="cursive"
-          pr={{ base: "14%", md: "4rem", lg: "6rem" }}
+          pl={{ base: "10rem", md: "4rem", lg: "6rem" }}
+          
         >
           Dora
         </Text>

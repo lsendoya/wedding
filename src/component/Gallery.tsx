@@ -6,10 +6,10 @@ const WeddingGallery = () => {
   return (
     <VStack backgroundColor="cream" my={"6rem"} p={10} w={"100%"} id="gallery" >
       <Flex direction="column" align="center" justify="center" mb={6}>
-        <Heading as="h2" size="xl" mb={2}>
+        <Heading as="h2" size="xl" mb={2} color={"var(--text-secondary)"}>
           Retratos de Nuestro Amor
         </Heading>
-        <Text mb={4} fontSize="lg" textAlign="center">
+        <Text mb={4} fontSize="lg" textAlign="center" color={"var(--text-tertiary)"}>
           Un minuto, un segundo, un instante que queda para la eternidad
         </Text>
         <Center>

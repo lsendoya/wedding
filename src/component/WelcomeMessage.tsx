@@ -14,8 +14,9 @@ const WelcomeMessage: React.FC<WelcomeMessageProps> = ({ onEnter }) => {
       h="100vh"
       gap={{base: 2, md: 4, lg: 6}}
       bgColor={"#f7ffe5"}
+      color={"var(--text-primary)"}
     >
-      <Text fontSize={{ base: "lg", md: "xl", lg: "2xl" }} px={"1rem"} fontWeight="bold">
+      <Text fontSize={{ base: "lg", md: "xl", lg: "2xl" }} px={"1rem"} fontWeight="bold" >
         Bienvenidos a la invitación de Luis y Dora.
       </Text>
       <Text
@@ -27,7 +28,9 @@ const WelcomeMessage: React.FC<WelcomeMessageProps> = ({ onEnter }) => {
         Nos complace contar con su compañía
       </Text>
 
-      <Button onClick={onEnter} colorScheme="#3f650f" size={{ base: "md", md: "lg" }} bgColor={"#65aa06"} color="#edfec9">
+      <Button _hover={{
+        bg: "var(--button-default)"
+      }} onClick={onEnter} size={{ base: "md", md: "lg" }} bg={"var(--button-default)"} color={"var(--text-button)"}>
         Ingresar
       </Button>
     </Grid>

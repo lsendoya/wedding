@@ -15,7 +15,7 @@ const zoomIn = keyframes`
 
 const FooterWedding: React.FC = () => {
   return (
-    <VStack w="100%" as="footer"  color="#3f650f"  py={{base:"3rem", md:"5rem"}} mb={"4rem"} >
+    <VStack w="100%" as="footer"  color={"var(--text-primary)"}  py={{base:"3rem", md:"5rem"}} mb={"4rem"} >
       <Flex
         w="full"
         direction={{ base: "column", md: "row" }}

@@ -4,7 +4,6 @@ import {
   VStack,
   Button,
   Link,
-  Image,
   Container,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
@@ -22,11 +21,6 @@ const fadeIn = keyframes`
   100% { opacity: 1; transform: translateY(0); }
 `;
 
-const zoomIn = keyframes`
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-`;
 
 interface IAppointment {
   title?: string;
@@ -35,6 +29,7 @@ interface IAppointment {
   address?: string;
   buttonText?: string;
   buttonLink?: string;
+  urlImg?: string;
 }
 
 const CalendarButton: React.FC<{ link: string; buttonText: string }> = ({
@@ -44,9 +39,8 @@ const CalendarButton: React.FC<{ link: string; buttonText: string }> = ({
   <Link href={link} isExternal>
     <Button
       title="Agendar"
-      colorScheme="#4e810a"
-      bgColor={"#65aa06"}
-      color={"#f7ffe5"}
+      bg={"var(--button-default)"}
+      color={"var(--text-button)"}
       w={"100%"}
     >
       {buttonText}
@@ -61,6 +55,7 @@ const AppointmentComponent: React.FC<IAppointment> = ({
   title,
   buttonText,
   buttonLink,
+  urlImg
 }) => {
   return (
     <VStack
@@ -68,30 +63,35 @@ const AppointmentComponent: React.FC<IAppointment> = ({
       spacing={4}
       m={4}
       p={5}
-      bgColor={"#edfec9"}
+      bgColor={"var(--background)"}
       borderRadius="lg"
       textAlign="center"
       boxShadow="md"
       _hover={{
         animation: `${fadeIn} 1s ease forwards, ${flicker} 2s ease-in-out infinite`,
       }}
+      bgImage={urlImg}
+      bgPos={"center"}
+      bgBlendMode={"color-burn"}      
+
+      
     >
-      <Text fontSize="xl" fontWeight="bold">
+      <Text fontSize="xl" fontWeight="bold" color={"var(--text-primary)"}>
         {title}
       </Text>
-      <Text>Día</Text>
-      <Text fontWeight="semibold">Martes 02 de Enero - {time}hrs</Text>
-      <Text>LUGAR</Text>
-      <Text fontWeight="semibold">{location}</Text>
+      <Text color={"var(--text-tertiary)"}>Día</Text>
+      <Text fontWeight="semibold" color={"var(--text-secondary)"}>Martes 02 de Enero - {time}hrs</Text>
+      <Text color={"var(--text-tertiary)"}>LUGAR</Text>
+      <Text fontWeight="semibold" color={"var(--text-secondary)"}>{location}</Text>
       {buttonText && buttonLink && (
         <CalendarButton link={buttonLink} buttonText={buttonText} />
       )}
-      <Text>DIRECCIÓN</Text>
-      <Text w={"80%"} fontWeight="semibold">
+      <Text color={"var(--text-tertiary)"}>DIRECCIÓN</Text>
+      <Text w={"80%"} fontWeight="semibold" color={"var(--text-primary)"}>
         {address}
       </Text>
-      <Link href="#" isExternal>
-        ¿Cómo llegar? <ExternalLinkIcon mx="2px" />
+      <Link href="#" isExternal >
+        <Text color={"var(--text-countDown)"}>¿Cómo llegar?</Text> <ExternalLinkIcon mx="2px" />
       </Link>
     </VStack>
   );
@@ -105,19 +105,11 @@ const WeddingSchedule = () => {
         align="center"
         justify="center"
         pos="relative"
-        color="#3f650f"
+        
         id="schedule"
+        
       >
-        <Image
-          src="/vela.png"
-          pos={{ md: "absolute" }}
-          display={{ base: "none", md: "block" }}
-          left={["-14rem", "-7rem", "-7rem", "-14rem"]}
-          h={{ base: "10rem", md: "100%" }}
-          _hover={{
-            animation: `${zoomIn} 0.5s ease-in-out infinite`,
-          }}
-        />
+        
         <AppointmentComponent
           {...infoChurch}
           buttonText="Agendar"
@@ -128,18 +120,7 @@ const WeddingSchedule = () => {
           buttonText="Agendar"
           buttonLink="https://www.addevent.com/event/Xn19420021+google"
         />
-        <Image
-          pos={{ md: "absolute" }}
-          display={{ base: "none", md: "block" }}
-          src="/wine.png"
-          right={["-16rem", "-8rem", "-8rem", "-16rem"]}
-          top={["-10rem", "-5rem", "-5rem", "-10rem"]}
-          h={{ base: "10rem", md: "100%" }}
-          w={{ base: "40%", md: "auto" }}
-          _hover={{
-            animation: `${zoomIn} 0.5s ease-in-out infinite`,
-          }}
-        />
+      
       </Flex>
     </Container>
   );
@@ -150,6 +131,7 @@ const infoChurch = {
   time: "13",
   location: "Parroquia El Señor de la Misericordia",
   address: "cll 44a # 48a-28 Barrio Arcoiris - El Santuario- Antioquia",
+  urlImg :"corner-left.png"
 };
 
 const infoParty = {
@@ -157,6 +139,7 @@ const infoParty = {
   time: "15",
   location: "Bendito Campestre",
   address: "Vereda pantanillo finca 16 - El Santuario- Antioquia",
+   urlImg :"corner-rigth.png"
 };
 
 export default WeddingSchedule;
