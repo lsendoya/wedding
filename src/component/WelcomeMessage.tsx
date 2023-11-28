@@ -92,7 +92,7 @@ const WelcomeMessage: React.FC<WelcomeMessageProps> = () => {
         p={{ base: 3, md: 4, lg: 5 }}
       >
         <ModalHeader color={'var(--text-primary)'}>
-          Bienvenidos a la invitación de Luis y Dora
+          Estan cordialmente invitados a nuestro MATRIMONIO
         </ModalHeader>
         <ModalCloseButton />
         <ModalBody>
@@ -102,7 +102,7 @@ const WelcomeMessage: React.FC<WelcomeMessageProps> = () => {
             px={'1rem'}
             fontWeight="bold"
           >
-            Nos complace contar con su compañía
+            Nos complace contar con tu compañía.
           </Text>
         </ModalBody>
 
@@ -121,7 +121,7 @@ const WelcomeMessage: React.FC<WelcomeMessageProps> = () => {
             bg={'var(--button-default)'}
             color={'var(--text-button)'}
             fontSize={{ base: 'xs', md: 'lg' }}
-            px={{ base: '1rem', md: '2rem' }}
+            p={{ base: '1rem', md: '2rem' }}
           >
             Ingresar con musica
           </Button>
@@ -133,7 +133,7 @@ const WelcomeMessage: React.FC<WelcomeMessageProps> = () => {
             size={{ base: 'sm', md: 'lg' }}
             bg={'var(--button-default)'}
             color={'var(--text-button)'}
-            px={{ base: '1rem', md: '2rem' }}
+            p={{ base: '1rem', md: '2rem' }}
             fontSize={{ base: 'xs', md: 'lg' }}
           >
             Ingresar sin musica
