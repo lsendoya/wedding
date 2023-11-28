@@ -2,15 +2,15 @@ import React, { Suspense } from 'react';
 
 import { Box, VStack } from '@chakra-ui/react';
 
-import WeddingCountdown from './CountDown';
 import FooterWedding from './Footer';
 import WeddingGallery from './Gallery';
 import WeddingSchedule from './Schedule';
 import SkeletonC from './Skeleton';
 import WelcomeMessage from './WelcomeMessage';
 import AudioPlayer from './Song';
+import WeddingInvitation from './Invitacion';
 
-const LazyComponent = React.lazy(() => import('./Invitacion'));
+const LazyComponent = React.lazy(() => import('./CountDown'));
 
 const Main = () => {
   return (
@@ -24,10 +24,10 @@ const Main = () => {
         alignItems={'center'}
         pt={{ base: '2rem' }}
       >
+        <WeddingInvitation />
         <Suspense fallback={<SkeletonC />}>
           <LazyComponent />
         </Suspense>
-        <WeddingCountdown />
         <WeddingSchedule />
         <WeddingGallery />
         <FooterWedding />

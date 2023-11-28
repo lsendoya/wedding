@@ -52,7 +52,7 @@ body {
   font-family: 'PearlFont';
   src:
     local('PearlFont'),
-    url('./fonts/TAN-PEARL.ttf') format('truetype');
+    url('../public/fonts/TAN-PEARL.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

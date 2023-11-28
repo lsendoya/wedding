@@ -85,7 +85,7 @@ const WelcomeMessage: React.FC<WelcomeMessageProps> = () => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>
-      <ModalOverlay bg="blackAlpha.800" />
+      <ModalOverlay bg="blackAlpha.900" />
       <ModalContent
         fontFamily={'serif'}
         textAlign="center"

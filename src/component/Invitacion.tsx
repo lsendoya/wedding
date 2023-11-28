@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Text, VStack, Divider, Image, BoxProps } from '@chakra-ui/react';
 import { keyframes } from '@emotion/react';
 import TypingAnimation from './Typing';
+import SkeletonC from './Skeleton';
 
 interface TextComponentProps extends BoxProps {
   text: string;
@@ -55,16 +56,19 @@ const WeddingInvitation: React.FC = () => {
       position="relative"
       spacing={4}
     >
-      <Image
-        src="/vertical-ramo.png"
-        position="absolute"
-        h={{ base: '46rem', md: '60rem', lg: '80rem' }}
-        w={{ base: 'full', md: '30%', lg: '50%' }}
-        left={{ base: '-6.2rem', md: '2rem', lg: '-6rem' }}
-        top={{ base: '-8rem', lg: '-10rem' }}
-        alt="Floral decoration"
-        sx={hover}
-      />
+      <Suspense fallback={<SkeletonC />}>
+        <Image
+          src="/vertical-ramo.png"
+          position="absolute"
+          h={{ base: '46rem', md: '60rem', lg: '80rem' }}
+          w={{ base: 'full', md: '30%', lg: '50%' }}
+          left={{ base: '-6.2rem', md: '2rem', lg: '-6rem' }}
+          top={{ base: '-8rem', lg: '-10rem' }}
+          alt="Floral decoration"
+          sx={hover}
+        />
+      </Suspense>
+
       <Image
         src="/ring.png"
         display={{ base: 'none', md: 'block' }}
