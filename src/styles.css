@@ -1,41 +1,3 @@
-.wedding-rings-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #333; /* El color de fondo que prefieras */
-  }
-  
-  .ring-circle {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: #ffcd3c; /* El color del fondo para el círculo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .ring {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #fff; /* El color del anillo */
-    border-radius: 50%;
-    margin: 0 5px;
-    /* Agrega aquí la animación */
-  }
-  
-  .hearts {
-    position: absolute;
-    top: 10px;
-    /* Agrega el SVG o el diseño del corazón aquí */
-    /* Agrega aquí la animación del corazón si es necesario */
-  }
-  
-  /* Añade aquí las animaciones clave */
-  
-  /* heartbeat.css */
 @keyframes heartbeat {
   0% {
     transform: scale(1);
@@ -56,9 +18,9 @@
 
 .heartbeat {
   display: inline-block;
-  background-image: url('/heart-first.png'); 
+  background-image: url('/heart-first.png');
   background-size: cover;
-  width: 100px; 
-  height: 100px; 
+  width: 100px;
+  height: 100px;
   animation: heartbeat 1s infinite;
 }

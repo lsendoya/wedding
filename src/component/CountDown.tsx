@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Grid, Text, Flex, VStack } from "@chakra-ui/react";
+import React, { useState, useEffect, useCallback } from 'react';
+import { Grid, Text, Flex, VStack } from '@chakra-ui/react';
 
 interface TimeLeft {
   days: number;
@@ -35,17 +35,16 @@ const Countdown: React.FC<{ targetDate: string }> = ({ targetDate }) => {
 
   const timeComponents = Object.entries(timeLeft).map(([unit, value]) => (
     <VStack
-      alignItems={"center"}
-      justify={"center"}
+      alignItems={'center'}
+      justify={'center'}
       key={unit}
-      w={{ base: "4rem", md: "5rem", lg: "6rem" }}
-      h={{ base: "auto", md: "5rem", lg: "6rem" }}
-      
+      w={{ base: '4rem', md: '5rem', lg: '6rem' }}
+      h={{ base: 'auto', md: '5rem', lg: '6rem' }}
     >
-      <Text fontSize={{ base: "xl", md: "4xl", lg: "5xl" }} fontWeight="bold">
+      <Text fontSize={{ base: 'xl', md: '4xl', lg: '5xl' }} fontWeight="bold">
         {value}
       </Text>
-      <Text fontSize={{ base: "xs", md: "md", lg: "lg" }} px="0.5rem">
+      <Text fontSize={{ base: 'xs', md: 'md', lg: 'lg' }} px="0.5rem">
         {unit.toUpperCase()}
       </Text>
     </VStack>
@@ -56,17 +55,17 @@ const Countdown: React.FC<{ targetDate: string }> = ({ targetDate }) => {
       <VStack
         borderRadius="full"
         p="4"
-        w={{ base: "full" }}
-        h={{ base: "9rem" }}
+        w={{ base: 'full' }}
+        h={{ base: '9rem' }}
         textAlign="center"
         gap={0}
-        align={"center"}
-        justifyContent={"center"}
+        align={'center'}
+        justifyContent={'center'}
       >
         <Text
-          fontSize={{ base: "sm", md: "xl", lg: "2xl" }}
+          fontSize={{ base: 'sm', md: 'xl', lg: '2xl' }}
           fontWeight="bold"
-          color={"var(--text-countDown)"}
+          color={'var(--text-countDown)'}
         >
           Falta
         </Text>
@@ -79,23 +78,24 @@ const Countdown: React.FC<{ targetDate: string }> = ({ targetDate }) => {
 };
 
 const WeddingCountdown: React.FC = () => {
-  const weddingDate = "2024-01-02T13:00:00";
+  const weddingDate = '2024-01-02T13:00:00';
 
   return (
     <Grid
-      color={"var(--text-primary)"}
-      w={{ base: "100%" }}
-      h={{ base: "20rem", md: "40rem", lg: "40rem" }}
-      p={{ base: "2rem", md: "12rem" }}
+      color={'var(--text-primary)'}
+      w={{ base: '100%' }}
+      h={{ base: '20rem', md: '40rem', lg: '40rem' }}
+      p={{ base: '2rem', md: '12rem' }}
       rounded="lg"
       textAlign="center"
       pos="relative"
-      placeContent={"center"}
-      mb={"4rem"}
+      placeContent={'center'}
+      mb={'4rem'}
       id="countdown"
-      bgImage={"rectangle-count-down.png"}
-      bgPos={"center"}
-      bgSize={"cover"}
+      bgImage={'rectangle-count-down.png'}
+      bgPos={'center'}
+      bgSize={'cover'}
+      fontFamily={'sans-serif'}
     >
       <Countdown targetDate={weddingDate} />
     </Grid>

@@ -1,113 +1,105 @@
-import { Text, VStack, Divider, Image } from "@chakra-ui/react";
-import { keyframes } from "@emotion/react";
-import TypingAnimation from "./Typing";
+import React from 'react';
+import { Text, VStack, Divider, Image, BoxProps } from '@chakra-ui/react';
+import { keyframes } from '@emotion/react';
+import TypingAnimation from './Typing';
 
-const flicker = keyframes`
-  0% { opacity: 0.9; }
+interface TextComponentProps extends BoxProps {
+  text: string;
+}
+
+const TextComponent: React.FC<TextComponentProps> = ({ text, ...props }) => (
+  <Text
+    textAlign="center"
+    fontSize={{ base: '3xl', md: '4xl', lg: '6xl' }}
+    fontWeight="bold"
+    color="var(--text-primary)"
+    {...props}
+  >
+    {text}
+  </Text>
+);
+
+const flickerAnimation = keyframes`
+  from, to { opacity: 0.9; }
   50% { opacity: 0.85; }
-  100% { opacity: 0.9; }
 `;
 
-const zoomIn = keyframes`
-  0% { transform: scale(1); }
+const zoomInAnimation = keyframes`
+  from, to { transform: scale(1); }
   50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
 `;
-function WeddingInvitation() {
+
+const useAnimationStyles = () => {
+  return {
+    flicker: `${flickerAnimation} 2s ease-in-out infinite`,
+    zoomIn: `${zoomInAnimation} 1s ease forwards`,
+    hover: {
+      '&:hover': {
+        animation: `${zoomInAnimation} 1s ease forwards, ${flickerAnimation} 2s ease-in-out infinite`,
+      },
+    },
+  };
+};
+
+const WeddingInvitation: React.FC = () => {
+  const { hover } = useAnimationStyles();
+
   return (
     <VStack
-      w="100%"
-      h={{ base: "30rem", md: "40rem", lg: "60rem" }}
-      spacing={4}
-      align="center"
-      justify="center"
+      w="full"
+      h={{ base: '30rem', md: '40rem', lg: '60rem' }}
+      alignItems={{ base: 'flex-end', md: 'center' }}
+      justifyContent={{ base: 'center', md: 'center' }}
       color="brown"
-      p={8}
-      marginY={8}
-      pos="relative"
-      id="invitation"
+      mb={{ base: '8rem', md: '12rem' }}
+      position="relative"
+      spacing={4}
     >
       <Image
         src="/vertical-ramo.png"
         position="absolute"
-        h={{ base: "46rem", md: "60rem", lg: "80rem" }}
-        w={{ base: "100%", md: "30%", lg: "50%" }}
-        left={{ base: "-5rem", md: "2rem", lg: "-6rem" }}
-        top={{ base: "-8rem", md: "-8rem" }}
-        _hover={{
-          animation: `${zoomIn} 1s ease forwards, ${flicker} 2s ease-in-out infinite`,
-        }}
+        h={{ base: '46rem', md: '60rem', lg: '80rem' }}
+        w={{ base: 'full', md: '30%', lg: '50%' }}
+        left={{ base: '-6.2rem', md: '2rem', lg: '-6rem' }}
+        top={{ base: '-8rem', lg: '-10rem' }}
+        alt="Floral decoration"
+        sx={hover}
       />
       <Image
         src="/ring.png"
+        display={{ base: 'none', md: 'block' }}
+        h={{ md: '30rem', lg: '20rem' }}
+        w={{ md: '25%', lg: '15%' }}
         position="absolute"
-        display={{ base: "none", md: "block" }}
-        h={{ base: "10rem", md: "30rem", lg: "20rem" }}
-        w={{ base: "auto", md: "25%", lg: "15%" }}
-        right={{ base: "2rem", md: "5rem", lg: "10rem" }}
-        _hover={{
-          animation: `${zoomIn} 1s ease forwards, ${flicker} 2s ease-in-out infinite`,
-        }}
+        top="16rem"
+        right={{ md: '5rem', lg: '10rem' }}
+        alt="Wedding ring"
+        sx={hover}
       />
 
       <VStack
-        w={{ base: "100%" }}
-        color="var(--text-primary)"
-        justifyContent={{ base: "end", md: "center" }}
+        w={{ base: '70%', md: 'full' }}
+        alignItems={{ base: 'center', md: 'center' }}
+        spacing={4}
       >
-        <Text
-          w={ "100%" }
-          textAlign={{ base: "end", md: "center" }}
-          fontSize={{ base: "3xl", md: "4xl", lg: "8xl" }}
-          fontWeight="semibold"
-          pl={{ base: "0", md: "4rem", lg: "10%" }}
-          mb={{ base: "0", md: "4rem" }}
-          
-        >
-          02.01.2024
-        </Text>
-        <Text
-          w={ "100%" }
-          textAlign={"center"}
-          fontSize={{ base: "3xl", md: "4xl", lg: "6xl" }}
-          fontWeight="bold"
-          fontFamily="cursive"
-          pl={{ base: "10rem", md: "4rem", lg: "6rem" }}
-          
-        >
-          Luis
-        </Text>
-        <Text
-          w={ "100%" }
-          textAlign={"center"}
-          fontSize={{ base: "3xl", md: "3xl", lg: "5xl" }}
-          fontWeight="bold"
-          fontFamily="cursive"
-          pl={{ base: "10rem", md: "4rem", lg: "6rem" }}
-          
-        >
-          &
-        </Text>
-        <Text
-          w={ "100%" }
-          textAlign={"center"}
-          fontSize={{ base: "3xl", md: "4xl", lg: "6xl" }}
-          fontWeight="bold"
-          fontFamily="cursive"
-          pl={{ base: "10rem", md: "4rem", lg: "6rem" }}
-          
-        >
-          Dora
-        </Text>
+        <TextComponent
+          text="02.01.2024"
+          pl={{ base: '1em', md: '4rem', lg: '0' }}
+        />
+        <TextComponent text="Luis" />
+        <TextComponent text="&" />
+        <TextComponent text="Dora" />
+
+        <Divider
+          w={{ md: '28rem', lg: '36rem' }}
+          display={{ base: 'none', md: 'block' }}
+          borderColor="black"
+        />
+
+        <TypingAnimation />
       </VStack>
-      <Divider
-        w={{ md: "28rem", lg: "36rem" }}
-        display={{ base: "none", md: "block" }}
-        borderColor="black"
-      />
-      <TypingAnimation />
     </VStack>
   );
-}
+};
 
 export default WeddingInvitation;

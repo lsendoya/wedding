@@ -7,9 +7,9 @@ import {
   Button,
   useColorModeValue,
   HStack,
-} from "@chakra-ui/react";
-import { IconType } from "react-icons";
-import { FaMusic, FaBlackTie, FaList } from "react-icons/fa";
+} from '@chakra-ui/react';
+import { IconType } from 'react-icons';
+import { FaMusic, FaBlackTie, FaList } from 'react-icons/fa';
 
 interface InfoCardProps {
   icon: IconType;
@@ -21,19 +21,21 @@ interface InfoCardProps {
 
 const PartyWending = () => {
   return (
-    <HStack w="100%" justify={"center"} id="party">
+    <HStack w="100%" justify={'center'} id="party">
       <Box bg="white" p={6} w="80%">
-        <VStack spacing={"1rem"}>
-          <Heading as="h1" size="xl" textAlign="center" color={"#4e810a"}>
+        <VStack spacing={'1rem'}>
+          <Heading as="h1" size="xl" textAlign="center" color={'#4e810a'}>
             Recepción
           </Heading>
-          <Text fontSize="lg" my="1rem" color={"#3f650f"}>
+          <Text fontSize="lg" my="1rem" color={'#3f650f'}>
             Hagamos juntos una agradable recepción. Aquí algunos detalles a
             tener en cuenta.
           </Text>
         </VStack>
 
-        <Flex wrap={"wrap"} justify={"center"} alignItems={"center"} gap={8}>          <InfoCard
+        <Flex wrap={'wrap'} justify={'center'} alignItems={'center'} gap={8}>
+          {' '}
+          <InfoCard
             icon={FaMusic}
             title="MÚSICA"
             text="¿Cuál es la canción que no debe faltar en la playlist de la fiesta?"
@@ -64,28 +66,35 @@ const InfoCard = ({ icon, title, text, buttonText, widht }: InfoCardProps) => {
   const IconComponent = icon;
   return (
     <VStack
-      bg={useColorModeValue("peachpuff", "darkgray")}
+      bg={useColorModeValue('peachpuff', 'darkgray')}
       p={5}
       borderRadius="lg"
       boxShadow="lg"
       textAlign="center"
-      w={{ base: "16rem" }}
+      w={{ base: '16rem' }}
       my={4}
-      bgColor={"#edfec9"}
+      bgColor={'#edfec9'}
     >
       <IconComponent size="3em" color="#3f650f" />
-      <Text fontSize="xl" fontWeight="semibold" color={"#4e810a"}>
+      <Text fontSize="xl" fontWeight="semibold" color={'#4e810a'}>
         {title}
       </Text>
-      <Text w={widht} h={"4rem"} textAlign={"center"} fontSize={"small"} my={4} color={"#3f650f"}>
+      <Text
+        w={widht}
+        h={'4rem'}
+        textAlign={'center'}
+        fontSize={'small'}
+        my={4}
+        color={'#3f650f'}
+      >
         {text}
       </Text>
       <Button
         colorScheme="teal"
-        bgColor={"#3f650f"}
+        bgColor={'#3f650f'}
         variant="solid"
         w="70%"
-        fontSize={"medium"}
+        fontSize={'medium'}
       >
         {buttonText}
       </Button>

@@ -1,5 +1,5 @@
-import { Flex,  VStack, Image } from "@chakra-ui/react";
-import { keyframes } from "@emotion/react";
+import { Flex, VStack, Image } from '@chakra-ui/react';
+import { keyframes } from '@emotion/react';
 
 const flicker = keyframes`
   0% { opacity: 0.9; }
@@ -15,23 +15,24 @@ const zoomIn = keyframes`
 
 const ToastWedding: React.FC = () => {
   return (
-    <VStack w="100%" as="footer"  color="#3f650f"  py={"1rem"} >
+    <VStack w="100%" as="footer" color="#3f650f" py={'1rem'}>
       <Flex
         w="full"
-        direction={{ base: "column", md: "row" }}
+        direction={{ base: 'column', md: 'row' }}
         justify="center"
         align="center"
         maxW="6xl"
         mx="auto"
         px={{ base: 5, md: 10 }}
-        textAlign={"center"}
+        textAlign={'center'}
       >
-       
-       
-        <Image src={"/brindi.png"} w={{md:"50%"}} _hover={{
-          animation: `${zoomIn} 1s ease forwards, ${flicker} 2s ease-in-out infinite`,
-        }}/>
-        
+        <Image
+          src={'/brindi.png'}
+          w={{ md: '50%' }}
+          _hover={{
+            animation: `${zoomIn} 1s ease forwards, ${flicker} 2s ease-in-out infinite`,
+          }}
+        />
       </Flex>
     </VStack>
   );

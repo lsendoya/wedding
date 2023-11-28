@@ -5,18 +5,36 @@
   --text-primary: #5d4531;
   --text-secondary: #735439;
   --text-tertiary: #aa7f4c;
-  --button-hover: linear-gradient(90deg, rgba(183,146,88,1) 0%, rgba(141,102,65,1) 85%);
-  --button-default: linear-gradient(90deg, rgba(200,174,125,1) 0%, rgba(170,127,76,1) 85%);
-  --button-focus:linear-gradient(90deg, rgba(170,127,76,1) 0%, rgba(115,84,57,1) 85%);
-  --background:#f3efe1;
-  --background-card: linear-gradient(90deg, rgba(200,174,125,1) 0%, rgba(115,84,57,1) 85%);
-  --text-countDown:linear-gradient(90deg, rgba(141,102,65,1) 0%, rgba(93,69,49,1) 85%);
-  --text-button:#e6dcc2;
-
+  --button-hover: linear-gradient(
+    90deg,
+    rgba(183, 146, 88, 1) 0%,
+    rgba(141, 102, 65, 1) 85%
+  );
+  --button-default: linear-gradient(
+    90deg,
+    rgba(200, 174, 125, 1) 0%,
+    rgba(170, 127, 76, 1) 85%
+  );
+  --button-focus: linear-gradient(
+    90deg,
+    rgba(170, 127, 76, 1) 0%,
+    rgba(115, 84, 57, 1) 85%
+  );
+  --background: #f3efe1;
+  --background-card: linear-gradient(
+    90deg,
+    rgba(200, 174, 125, 1) 0%,
+    rgba(115, 84, 57, 1) 85%
+  );
+  --text-countDown: linear-gradient(
+    90deg,
+    rgba(141, 102, 65, 1) 0%,
+    rgba(93, 69, 49, 1) 85%
+  );
+  --text-button: #faf8f2;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,10 +42,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 body {
   margin: 0;
   display: flex;
   place-items: center;
- 
+}
+
+@font-face {
+  font-family: 'PearlFont';
+  src:
+    local('PearlFont'),
+    url('./fonts/TAN-PEARL.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }

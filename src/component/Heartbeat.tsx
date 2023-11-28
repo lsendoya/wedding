@@ -1,18 +1,16 @@
 import { Grid, Box } from '@chakra-ui/react';
-import "../styles.css"
+import '../styles.css';
 
 const Heartbeat = () => {
   return (
     <Grid
       w="100%"
-      h={{ base: "100vh" }} 
-      bgColor={"#f7ffe5"}
+      h={{ base: '100vh' }}
+      bgColor={'var(--background)'}
       position="relative"
       placeContent="center"
     >
-      <Box className='heartbeat'> 
-       
-      </Box>
+      <Box className="heartbeat"></Box>
     </Grid>
   );
 };

@@ -1,5 +1,5 @@
-import { Flex, Text, VStack, Image } from "@chakra-ui/react";
-import { keyframes } from "@emotion/react";
+import { Flex, Text, VStack, Image } from '@chakra-ui/react';
+import { keyframes } from '@emotion/react';
 
 const flicker = keyframes`
   0% { opacity: 0.9; }
@@ -15,29 +15,37 @@ const zoomIn = keyframes`
 
 const FooterWedding: React.FC = () => {
   return (
-    <VStack w="100%" as="footer"  color={"var(--text-primary)"}  py={{base:"3rem", md:"5rem"}} mb={"4rem"} >
+    <VStack
+      w="100%"
+      as="footer"
+      color={'var(--text-primary)'}
+      py={{ base: '3rem', md: '5rem' }}
+      mb={'4rem'}
+    >
       <Flex
         w="full"
-        direction={{ base: "column", md: "row" }}
+        direction={{ base: 'column', md: 'row' }}
         justify="center"
         align="center"
         maxW="6xl"
         mx="auto"
         px={{ base: 5, md: 10 }}
-        textAlign={"center"}
+        textAlign={'center'}
       >
         <Text
-          fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
+          fontSize={{ base: '3xl', md: '4xl', lg: '6xl' }}
           fontWeight="bold"
           mb={{ base: 5, md: 0 }}
-          fontFamily="cursive"
         >
           Luis & Dora
         </Text>
-        <Image src={"/flor.png"} w={{md:"60%"}} _hover={{
-          animation: `${zoomIn} 1s ease forwards, ${flicker} 2s ease-in-out infinite`,
-        }}/>
-        
+        <Image
+          src={'/flor.png'}
+          w={{ md: '60%' }}
+          _hover={{
+            animation: `${zoomIn} 1s ease forwards, ${flicker} 2s ease-in-out infinite`,
+          }}
+        />
       </Flex>
     </VStack>
   );

@@ -3,12 +3,13 @@ import {
   Flex,
   VStack,
   Button,
+  Box,
   Link,
   Container,
-} from "@chakra-ui/react";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
-import React from "react";
-import { keyframes } from "@emotion/react";
+} from '@chakra-ui/react';
+
+import { keyframes } from '@emotion/react';
+import MapModal from './ModalMaps';
 
 const flicker = keyframes`
   0% { opacity: 0.9; }
@@ -21,7 +22,6 @@ const fadeIn = keyframes`
   100% { opacity: 1; transform: translateY(0); }
 `;
 
-
 interface IAppointment {
   title?: string;
   time?: string;
@@ -30,6 +30,9 @@ interface IAppointment {
   buttonText?: string;
   buttonLink?: string;
   urlImg?: string;
+  lat: number;
+  lng: number;
+  zoom: number;
 }
 
 const CalendarButton: React.FC<{ link: string; buttonText: string }> = ({
@@ -39,9 +42,9 @@ const CalendarButton: React.FC<{ link: string; buttonText: string }> = ({
   <Link href={link} isExternal>
     <Button
       title="Agendar"
-      bg={"var(--button-default)"}
-      color={"var(--text-button)"}
-      w={"100%"}
+      bg={'var(--button-default)'}
+      color={'var(--text-button)'}
+      w={'100%'}
     >
       {buttonText}
     </Button>
@@ -55,15 +58,18 @@ const AppointmentComponent: React.FC<IAppointment> = ({
   title,
   buttonText,
   buttonLink,
-  urlImg
+  urlImg,
+  lat,
+  lng,
+  zoom,
 }) => {
   return (
     <VStack
-      w={{ base: "90%", md: "22rem" }}
+      w={{ base: '90%', md: '22rem' }}
       spacing={4}
       m={4}
       p={5}
-      bgColor={"var(--background)"}
+      bgColor={'var(--background)'}
       borderRadius="lg"
       textAlign="center"
       boxShadow="md"
@@ -71,28 +77,30 @@ const AppointmentComponent: React.FC<IAppointment> = ({
         animation: `${fadeIn} 1s ease forwards, ${flicker} 2s ease-in-out infinite`,
       }}
       bgImage={urlImg}
-      bgPos={"center"}
-      bgBlendMode={"color-burn"}      
-
-      
+      bgPos={'center'}
+      bgBlendMode={'color-burn'}
     >
-      <Text fontSize="xl" fontWeight="bold" color={"var(--text-primary)"}>
+      <Text fontSize="xl" fontWeight="bold" color={'var(--text-primary)'}>
         {title}
       </Text>
-      <Text color={"var(--text-tertiary)"}>Día</Text>
-      <Text fontWeight="semibold" color={"var(--text-secondary)"}>Martes 02 de Enero - {time}hrs</Text>
-      <Text color={"var(--text-tertiary)"}>LUGAR</Text>
-      <Text fontWeight="semibold" color={"var(--text-secondary)"}>{location}</Text>
+      <Text color={'var(--text-tertiary)'}>Día</Text>
+      <Text fontWeight="semibold" color={'var(--text-secondary)'}>
+        Martes 02 de Enero - {time}hrs
+      </Text>
+      <Text color={'var(--text-tertiary)'}>Lugar</Text>
+      <Text fontWeight="semibold" color={'var(--text-secondary)'}>
+        {location}
+      </Text>
       {buttonText && buttonLink && (
         <CalendarButton link={buttonLink} buttonText={buttonText} />
       )}
-      <Text color={"var(--text-tertiary)"}>DIRECCIÓN</Text>
-      <Text w={"80%"} fontWeight="semibold" color={"var(--text-primary)"}>
+      <Text color={'var(--text-tertiary)'}>Dirección</Text>
+      <Text w={'80%'} fontWeight="semibold" color={'var(--text-primary)'}>
         {address}
       </Text>
-      <Link href="#" isExternal >
-        <Text color={"var(--text-countDown)"}>¿Cómo llegar?</Text> <ExternalLinkIcon mx="2px" />
-      </Link>
+      <Box>
+        <MapModal lat={lat} lng={lng} zoom={zoom} />
+      </Box>
     </VStack>
   );
 };
@@ -101,15 +109,13 @@ const WeddingSchedule = () => {
   return (
     <Container centerContent>
       <Flex
-        direction={{ base: "column", md: "row" }}
+        direction={{ base: 'column', md: 'row' }}
         align="center"
         justify="center"
         pos="relative"
-        
         id="schedule"
-        
+        fontFamily={'sans-serif'}
       >
-        
         <AppointmentComponent
           {...infoChurch}
           buttonText="Agendar"
@@ -120,26 +126,31 @@ const WeddingSchedule = () => {
           buttonText="Agendar"
           buttonLink="https://www.addevent.com/event/Xn19420021+google"
         />
-      
       </Flex>
     </Container>
   );
 };
 
 const infoChurch = {
-  title: "Ceremonia",
-  time: "13",
-  location: "Parroquia El Señor de la Misericordia",
-  address: "cll 44a # 48a-28 Barrio Arcoiris - El Santuario- Antioquia",
-  urlImg :"corner-left.png"
+  title: 'Ceremonia',
+  time: '13',
+  location: 'Parroquia El Señor de la Misericordia',
+  address: 'cll 44a # 48a-28 Barrio Arcoiris - El Santuario- Antioquia',
+  urlImg: 'corner-left.png',
+  lat: 6.134643389350223,
+  lng: -75.26719449604973,
+  zoom: 19,
 };
 
 const infoParty = {
-  title: "Recepción",
-  time: "15",
-  location: "Bendito Campestre",
-  address: "Vereda pantanillo finca 16 - El Santuario- Antioquia",
-   urlImg :"corner-rigth.png"
+  title: 'Recepción',
+  time: '15',
+  location: 'Bendito Campestre',
+  address: 'Vereda pantanillo finca 16 - El Santuario- Antioquia',
+  urlImg: 'corner-rigth.png',
+  lat: 6.146872172871273,
+  lng: -75.2879014,
+  zoom: 15,
 };
 
 export default WeddingSchedule;

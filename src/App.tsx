@@ -1,31 +1,25 @@
-import "./App.css";
-import { useState, useEffect } from "react";
-import Heartbeat from "./component/Heartbeat";
-import WelcomeMessage from "./component/WelcomeMessage";
-import Main from "./component/Main";
+import './App.css';
+import { useState, useEffect } from 'react';
+import Heartbeat from './component/Heartbeat';
+import Main from './component/Main';
 
 function App() {
-  const [currentView, setCurrentView] = useState<
-    "heartbeat" | "welcome" | "main"
-  >("heartbeat");
+  const [currentView, setCurrentView] = useState<'heartbeat' | 'main'>(
+    'heartbeat',
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setCurrentView("welcome");
+      setCurrentView('main');
     }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
 
-  const handleEnter = () => {
-    setCurrentView("main");
-  };
-
   return (
     <>
-      {currentView === "heartbeat" && <Heartbeat />}
-      {currentView === "welcome" && <WelcomeMessage onEnter={handleEnter} />}
-      {currentView === "main" && <Main />}
+      {currentView === 'heartbeat' && <Heartbeat />}
+      {currentView !== 'heartbeat' && <Main />}
     </>
   );
 }
