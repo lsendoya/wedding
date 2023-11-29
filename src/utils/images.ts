@@ -1,10 +1,11 @@
 export const images = [
   {
     original:
-      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221430/favl45i2dpfxjxpjhbwf.jpg',
+      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221426/bkwwigihxj9tul7ugwyb.jpg',
     thumbnail:
-      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221430/favl45i2dpfxjxpjhbwf.jpg',
+      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221426/bkwwigihxj9tul7ugwyb.jpg',
   },
+
   {
     original:
       'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221429/yk0hgi6eqes9w75tbymc.jpg',
@@ -13,15 +14,22 @@ export const images = [
   },
   {
     original:
-      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221428/bcu7jtjjumbwn2bt4shm.jpg',
+      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221427/mbniiuim8zt3sr3oqznx.jpg',
     thumbnail:
-      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221428/bcu7jtjjumbwn2bt4shm.jpg',
+      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221427/mbniiuim8zt3sr3oqznx.jpg',
   },
+
   {
     original:
       'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221427/uon1grzxjmtxvl29ymgr.jpg',
     thumbnail:
       'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221427/uon1grzxjmtxvl29ymgr.jpg',
+  },
+  {
+    original:
+      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221430/favl45i2dpfxjxpjhbwf.jpg',
+    thumbnail:
+      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221430/favl45i2dpfxjxpjhbwf.jpg',
   },
   {
     original:
@@ -31,16 +39,11 @@ export const images = [
   },
   {
     original:
-      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221427/mbniiuim8zt3sr3oqznx.jpg',
+      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221428/bcu7jtjjumbwn2bt4shm.jpg',
     thumbnail:
-      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221427/mbniiuim8zt3sr3oqznx.jpg',
+      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221428/bcu7jtjjumbwn2bt4shm.jpg',
   },
-  {
-    original:
-      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221426/bkwwigihxj9tul7ugwyb.jpg',
-    thumbnail:
-      'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221426/bkwwigihxj9tul7ugwyb.jpg',
-  },
+
   {
     original:
       'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701221429/dggs1u3qaelzcto7uzqe.jpg',

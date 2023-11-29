@@ -1,14 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Flex, Box, Text } from '@chakra-ui/react';
+import { phrases } from '../utils/phrases';
 
-const phrases: string[] = [
-  'El amor florece en cada paso, desde la primera palabra hasta el compromiso ante Dios.',
-  'Como dos ramas en una vid, crecemos juntos en la gracia de Dios, fortaleciéndonos mutuamente en el amor.',
-  'El matrimonio es el comienzo de un viaje donde dos corazones se unen en un camino de fe, esperanza y amor.',
-  'Bendecidos en la unión sagrada, reflejamos el amor paciente, bondadoso y perseverante descrito en 1 Corintios 13.',
-  'En el sagrado sacramento del matrimonio, encontramos la fuerza para perdonar, la alegría para celebrar y la paz de estar en presencia de Dios.',
-  'Cada día en la vida matrimonial es una oportunidad para amarse más profundamente, servirse mutuamente y honrar el voto divino.',
-];
+
 
 const TypingAnimation: React.FC = () => {
   const [phrase, setPhrase] = useState('');

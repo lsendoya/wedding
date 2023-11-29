@@ -78,12 +78,7 @@ const WelcomeMessage: React.FC<WelcomeMessageProps> = () => {
           </Text>
         </ModalBody>
 
-        <HStack
-          
-          gap={'1rem'}
-          justifyContent={'center'}
-          w={'100%'}
-        >
+        <HStack gap={'1rem'} justifyContent={'center'} w={'100%'}>
           <ButtonComponent
             text="Ingresar con musica"
             onClick={handlePlusSing}
