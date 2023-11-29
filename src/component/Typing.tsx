@@ -55,6 +55,7 @@ const TypingAnimation: React.FC = () => {
         fontWeight="bold"
         fontStyle="italic"
         color="var(--text-secondary)"
+        as="cite"
       >
         {phrase}
         <Box

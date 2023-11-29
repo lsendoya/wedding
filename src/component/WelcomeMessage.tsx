@@ -1,70 +1,42 @@
-// import { Grid, Text, Button } from '@chakra-ui/react';
-
-// interface WelcomeMessageProps {
-//   onEnter: () => void;
-// }
-
-// const WelcomeMessage: React.FC<WelcomeMessageProps> = ({ onEnter }) => {
-//   return (
-//     <Grid
-//       textAlign="center"
-//       p={{ base: 3, md: 4, lg: 5 }}
-//       placeContent="center"
-//       w="100%"
-//       h="100vh"
-//       gap={{ base: 2, md: 4, lg: 6 }}
-//       bgColor={'var(--background)'}
-//       color={'var(--text-primary)'}
-//     >
-//       <Text
-//         fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
-//         px={'1rem'}
-//         fontWeight="bold"
-//       >
-//         Bienvenidos a la invitación de Luis y Dora.
-//       </Text>
-//       <Text
-//         fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
-//         fontWeight="bold"
-//         mb={4}
-//         px={'1rem'}
-//       >
-//         Nos complace contar con su compañía
-//       </Text>
-
-//       <Button
-//         _hover={{
-//           bg: 'var(--button-default)',
-//         }}
-//         onClick={onEnter}
-//         size={{ base: 'md', md: 'lg' }}
-//         bg={'var(--button-default)'}
-//         color={'var(--text-button)'}
-//       >
-//         Ingresar
-//       </Button>
-//     </Grid>
-//   );
-// };
-
-// export default WelcomeMessage;
-
 import React, { useEffect } from 'react';
 import {
   Modal,
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   Button,
   Text,
   useDisclosure,
+  HStack,
 } from '@chakra-ui/react';
 import { usePlayerSing } from '../store/player';
 
 interface WelcomeMessageProps {}
+interface ButtonProps {
+  text: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+}
+
+const ButtonComponent: React.FC<ButtonProps> = ({ text, onClick }) => {
+  return (
+    <Button
+      fontSize={{ base: '0.9rem', md: 'lg' }}
+      w="50%"
+      _hover={{
+        bg: 'var(--button-hover)',
+      }}
+      onClick={onClick}
+      bg={'var(--button-default)'}
+      color={'var(--text-button)'}
+      px={{ base: '0.4rem', md: '2rem' }}
+      display={'block'}
+    >
+      {text}
+    </Button>
+  );
+};
 
 const WelcomeMessage: React.FC<WelcomeMessageProps> = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -85,7 +57,7 @@ const WelcomeMessage: React.FC<WelcomeMessageProps> = () => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>
-      <ModalOverlay bg="blackAlpha.900" />
+      <ModalOverlay bg="blackAlpha.800" />
       <ModalContent
         fontFamily={'serif'}
         textAlign="center"
@@ -106,41 +78,21 @@ const WelcomeMessage: React.FC<WelcomeMessageProps> = () => {
           </Text>
         </ModalBody>
 
-        <ModalFooter
-          display={'flex'}
+        <HStack
+          
           gap={'1rem'}
           justifyContent={'center'}
           w={'100%'}
         >
-          <Button
-            w="50%"
-            _hover={{
-              bg: 'var(--button-hover)',
-            }}
+          <ButtonComponent
+            text="Ingresar con musica"
             onClick={handlePlusSing}
-            size={{ base: 'sm', md: 'lg' }}
-            bg={'var(--button-default)'}
-            color={'var(--text-button)'}
-            fontSize={{ base: 'x-small', md: 'large' }}
-            px={{ base: '1rem', md: '2rem' }}
-          >
-            Ingresar con musica
-          </Button>
-          <Button
-            w="50%"
-            _hover={{
-              bg: 'var(--button-hover)',
-            }}
+          />
+          <ButtonComponent
+            text="Ingresar sin musica"
             onClick={handleWhitoutSing}
-            size={{ base: 'sm', md: 'lg' }}
-            bg={'var(--button-default)'}
-            color={'var(--text-button)'}
-            px={{ base: '1rem', md: '2rem' }}
-            fontSize={{ base: 'x-small', md: 'large' }}
-          >
-            Ingresar sin musica
-          </Button>
-        </ModalFooter>
+          />
+        </HStack>
       </ModalContent>
     </Modal>
   );
