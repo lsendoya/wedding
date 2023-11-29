@@ -1,7 +1,7 @@
-import './App.css';
 import { useState, useEffect } from 'react';
 import Heartbeat from './component/Heartbeat';
 import Main from './component/Main';
+import './App.css';
 
 function App() {
   const [currentView, setCurrentView] = useState<'heartbeat' | 'main'>(

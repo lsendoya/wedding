@@ -40,7 +40,10 @@ const FooterWedding: React.FC = () => {
           Luis & Dora
         </Text>
         <Image
-          src={'/flor.png'}
+          loading="lazy"
+          src={
+            'https://res.cloudinary.com/dkcjwssqm/image/upload/v1701220462/np6tdlm9an4ohjusdzs8.png'
+          }
           w={{ md: '60%' }}
           _hover={{
             animation: `${zoomIn} 1s ease forwards, ${flicker} 2s ease-in-out infinite`,

@@ -58,7 +58,8 @@ const WeddingInvitation: React.FC = () => {
     >
       <Suspense fallback={<SkeletonC />}>
         <Image
-          src="/vertical-ramo.png"
+          loading="lazy"
+          src="https://res.cloudinary.com/dkcjwssqm/image/upload/v1701220453/kubyppjjcvt4ntbhas84.png"
           position="absolute"
           h={{ base: '46rem', md: '60rem', lg: '80rem' }}
           w={{ base: 'full', md: '30%', lg: '50%' }}
@@ -70,7 +71,7 @@ const WeddingInvitation: React.FC = () => {
       </Suspense>
 
       <Image
-        src="/ring.png"
+        src="https://res.cloudinary.com/dkcjwssqm/image/upload/v1701220456/dzon4benayhc4mt241dr.png"
         display={{ base: 'none', md: 'block' }}
         h={{ md: '30rem', lg: '20rem' }}
         w={{ md: '25%', lg: '15%' }}
