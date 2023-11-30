@@ -144,7 +144,7 @@ const infoChurch = {
 
 const infoParty = {
   title: 'Recepción',
-  time: '15',
+  time: '14',
   location: 'Bendito Campestre',
   address: 'Vereda pantanillo finca 16 - El Santuario- Antioquia',
   urlImg: 'corner-rigth.png',
